@@ -56,7 +56,7 @@ class Example:
         forward_two_hop_tests = [TestCase.from_dict(test) for test in d['Compositionality_II']]
         prev_storage_tests = [TestCase.from_dict(test) for test in d['Forgetfulness']]
         if d['example_type'] in ['random', 'popular']:
-            previous_fact = Fact.from_dict(d['edit']['previous_fact'])
+            previous_fact = Fact.from_dict(d['edit']['original_fact'])
             return CounterFactualExample(fact, previous_fact, making_up_tests, logical_constraints,
                                          subject_paraphrasing_tests, two_hop_tests, forward_two_hop_tests, prev_storage_tests)
         elif d['example_type'] == 'recent':
@@ -120,7 +120,7 @@ class CounterFactualExample(Example):
 
     def to_dict(self):
         d = super().create_example_dict('counter_fact')
-        d['edit']['previous_fact'] = self.previous_fact.to_dict()
+        d['edit']['original_fact'] = self.previous_fact.to_dict()
         return d
 
     def __str__(self):

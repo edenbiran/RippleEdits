@@ -24,7 +24,7 @@ Generating the benchmark from scratch can be done using `src/build_benchmark.py`
 Benchmark popularity statistics can be extracted using `src/benchmark_statistics.py`.
 
 Each benchmark json contains a list of entries. 
-Each entry is an edit containing the edit information (which also contains the previous fact if applicable) and the 6 evaluation criteria.
+Each entry is an edit containing the edit information (which also contains the original fact if applicable) and the 6 evaluation criteria.
 Each evaluation criteria contains a list of tests, where each test contains the test prompt, answers and conditions.
 An example (shortened for brevity) of an edit entry can be seen below:
 ```json
@@ -35,7 +35,7 @@ An example (shortened for brevity) of an edit entry can be seen below:
     "subject_id": "Q38111",
     "relation": "COUNTRY_OF_CITIZENSHIP",
     "target_id": "Q858",
-    "previous_fact": {
+    "original_fact": {
       "prompt": "The name of the country of citizenship of Leonardo DiCaprio is United States of America.",
       "subject_id": "Q38111",
       "relation": "COUNTRY_OF_CITIZENSHIP",
