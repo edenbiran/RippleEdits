@@ -27,7 +27,7 @@ class InContextModelEditor(ModelEditor):
         super().__init__(query_executor)
 
     def edit_model(self, fact):
-        context = fact.get_fact_phrased() + '\n'
+        context = 'Imagine that ' + fact.get_fact_phrased() + '\n'
         print(f'In Context Editing added context: {context}')
         self._query_executor.set_prompt_context(context)
 

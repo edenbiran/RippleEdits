@@ -36,22 +36,22 @@ class Evaluator:
         return successes / (successes + fails) if successes else 0.0, executed, len(test_cases), edit_succeeded
 
     def evaluate_making_up_axis(self, example: Example):
-        return self.average_acc(example, example.making_up_tests, skip_restore=True)
+        return self.average_acc(example, example.making_up_tests)
 
     def evaluate_logical_constraints(self, example: Example):
-        return self.average_acc(example, example.logical_constraints, skip_edit=True, skip_restore=True)
+        return self.average_acc(example, example.logical_constraints)
 
     def evaluate_subject_paraphrasing(self, example: Example):
-        return self.average_acc(example, example.subject_paraphrasing_tests, skip_edit=True, skip_restore=True)
+        return self.average_acc(example, example.subject_paraphrasing_tests)
 
     def evaluate_two_hop_tests(self, example: Example):
-        return self.average_acc(example, example.two_hop_tests, skip_edit=True, skip_restore=True)
+        return self.average_acc(example, example.two_hop_tests)
 
     def evaluate_forward_two_hop_tests(self, example: Example):
-        return self.average_acc(example, example.forward_two_hop_tests, skip_edit=True, skip_restore=True)
+        return self.average_acc(example, example.forward_two_hop_tests)
 
     def evaluate_prev_storage_tests(self, example: Example):
-        return self.average_acc(example, example.prev_storage_tests, skip_edit=True, skip_restore=False)
+        return self.average_acc(example, example.prev_storage_tests)
 
     def evaluate(self, example: Example):
         res = defaultdict()
@@ -167,11 +167,11 @@ if __name__ == '__main__':
                             continue
                         if edit_succeeded:
                             succeeded_edits[axis] += 1
-                        average_precision[axis] += precision
-                        res_dict_for_json[axis.name] = precision
-                        average_executed[axis] += executed
-                        average_size[axis] += size
-                        # precisions_json[str(example.fact)] = precision
+                            average_precision[axis] += precision
+                            res_dict_for_json[axis.name] = precision
+                            average_executed[axis] += executed
+                            average_size[axis] += size
+                            # precisions_json[str(example.fact)] = precision
                         total_checked_examples[axis] += 1
 
                     precisions_json[str(example.fact)] = res_dict_for_json
@@ -190,9 +190,9 @@ if __name__ == '__main__':
                         res_str += f'No checked tests for this axis\n'
                         continue
 
-                    average_precision[axis] /= total_checked_examples[axis]
-                    average_executed[axis] /= total_checked_examples[axis]
-                    average_size[axis] /= total_checked_examples[axis]
+                    average_precision[axis] /= succeeded_edits[axis]
+                    average_executed[axis] /= succeeded_edits[axis]
+                    average_size[axis] /= succeeded_edits[axis]
 
                     print(f'{(succeeded_edits[axis] / eval_size) * 100} successful edits (out of {eval_size})')
                     res_str += f'{(succeeded_edits[axis] / eval_size) * 100} successful edits (out of {eval_size})\n'

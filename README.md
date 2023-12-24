@@ -18,8 +18,7 @@ The benchmark files and statistics can be found under `data/benchmark/` and `dat
 The benchmark is split into three files named according to the benchmark\`s three subsets: `RECENT`, `RANDOM` and `POPULAR`. 
 For more details please refer to section 4 of the paper.
 
-The source code for generating the benchmark can be found under `src/`.
-
+The source code for generating the benchmark can be found under `src/`. 
 Generating the benchmark from scratch can be done using `src/build_benchmark.py`.
 Benchmark popularity statistics can be extracted using `src/benchmark_statistics.py`.
 
@@ -109,12 +108,10 @@ In order to evaluate the benchmark on a knowledge editing technique not currentl
 
 ## Citation
 ```
-@misc{cohen2023evaluating,
-      title={Evaluating the Ripple Effects of Knowledge Editing in Language Models}, 
-      author={Roi Cohen and Eden Biran and Ori Yoran and Amir Globerson and Mor Geva},
-      year={2023},
-      eprint={2307.12976},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{cohen2023evaluating,
+  title={Evaluating the Ripple Effects of Knowledge Editing in Language Models},
+  author={Cohen, Roi and Biran, Eden and Yoran, Ori and Globerson, Amir and Geva, Mor},
+  journal={arXiv preprint arXiv:2307.12976},
+  year={2023}
 }
 ```
