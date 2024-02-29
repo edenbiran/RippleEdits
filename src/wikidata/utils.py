@@ -1,10 +1,12 @@
 import json
+import csv
 import os
 import functools
 from collections import defaultdict
 from qwikidata.linked_data_interface import get_entity_dict_from_api
 from qwikidata.entity import WikidataItem
 from qwikidata.sparql import return_sparql_query_results
+import zipfile
 
 
 def load_json(path: str):
@@ -155,6 +157,9 @@ def ent_to_relation_ids(ent_id: str):
     related_claims = item.get_truthy_claim_groups()
     return list(related_claims.keys())
 
+
+with zipfile.ZipFile('./wikidata/ent_label2id.json.zip', 'r') as zip_ref:
+    zip_ref.extractall('./wikidata/ent_label2id.json')
 
 ent_label2id_dict = load_json('./wikidata/ent_label2id.json')
 
