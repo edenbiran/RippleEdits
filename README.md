@@ -108,10 +108,13 @@ In order to evaluate the benchmark on a knowledge editing technique not currentl
 
 ## Citation
 ```
-@article{cohen2023evaluating,
-  title={Evaluating the Ripple Effects of Knowledge Editing in Language Models},
+@article{cohen2024evaluating,
+  title={Evaluating the ripple effects of knowledge editing in language models},
   author={Cohen, Roi and Biran, Eden and Yoran, Ori and Globerson, Amir and Geva, Mor},
-  journal={arXiv preprint arXiv:2307.12976},
-  year={2023}
+  journal={Transactions of the Association for Computational Linguistics},
+  volume={12},
+  pages={283--298},
+  year={2024},
+  publisher={MIT Press One Broadway, 12th Floor, Cambridge, Massachusetts 02142, USA~…}
 }
 ```
